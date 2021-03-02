@@ -12,6 +12,8 @@ def main():
     db_session.global_init('db/mars_explorer.sqlite')
     db_sess = db_session.create_session()
     jobs = db_sess.query(Jobs).all()
+    for i in range(len(jobs)):
+        jobs[i].team_leader = ' '.join(db_sess.query(User.surname, User.name).filter(User.id == jobs[i].team_leader)[0])
     return render_template('jobs.html', jobs=jobs)
 
 
