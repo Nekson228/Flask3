@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+{% for job in jobs %}
+<h5>Action #{{ loop.index }}</h5>
+<table class="table">
+  <thead>
+    <tr class="table-active">
+      <th>Title of activity</th>
+      <th>Team leader</th>
+      <th>Duration</th>
+      <th>List of collaborators</th>
+      <th>Is finished</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-info">
+      <td>{{ job.job }}</td>
+      <td>{{ job.team_leader }}</td>
+      <td>{{ job.work_size }}</td>
+      <td>{{ job.collaborators }}</td>
+      <td>{{ job.is_finished }}</td>
+    </tr>
+  </tbody>
+</table>
+{% endfor %}
+{% endblock %}
